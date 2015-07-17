@@ -1,0 +1,34 @@
+<html>
+  <head>
+      <title>Modifica sito</title>
+      <script type='text/javascript'>
+          function addFields(){
+              var n = document.getElementById("number").value;
+              var div = document.getElementById("div");
+              while (div.hasChildNodes()) {
+                  div.removeChild(div.lastChild);
+              }
+              for (i=0;i<n;i++) {
+                  div.appendChild(document.createTextNode("Casella numero: " + (i+1)));
+                  var input = document.createElement("select");
+                  input.name = "cella" + i;
+                  input.id = "cella_id" + i;
+                  input.text = "prova";
+                  input.value = "test";
+                  div.appendChild(input);
+                  div.appendChild(document.createElement("br"));
+              }
+          }
+      </script>
+  </head>
+  <body>
+      <div id="aggiungi_elementi" style='position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%)'>
+        Inserisci il numero degli elemeni: <input type="text" id="number" name="number" onchange="addFields()">
+        <form action="update_form.php" method="post">
+          <div id="div">
+          </div>
+          <input type="submit" value="Aggiora sito">
+        </form>
+      </div>
+  </body>
+</html>
